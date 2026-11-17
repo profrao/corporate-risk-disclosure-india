@@ -1,0 +1,364 @@
+{
+  "all_passed": true,
+  "n_checks": 11,
+  "checks": [
+    {
+      "check": "Unique (bse_code, year) panel keys",
+      "passed": true,
+      "detail": "N=16,987 firm-years across 961 unique BSE firms, duplicates=0"
+    },
+    {
+      "check": "Campbell et al. (2014) Appendix C exact 382-keyword count",
+      "passed": true,
+      "detail": "Total=382 {'RF_FIN': 66, 'RF_IDIO': 126, 'RF_LR': 53, 'RF_SYS': 111, 'RF_TAX': 26}"
+    },
+    {
+      "check": "Campbell 5-subcategory raw sum == KW_1A_RAW",
+      "passed": true,
+      "detail": "Mismatches=0/16,987"
+    },
+    {
+      "check": "Campbell 5-subcategory shares sum to 1.000",
+      "passed": true,
+      "detail": "N=11,706, max |sum - 1| = 0.000200"
+    },
+    {
+      "check": "Beatty et al. (2019) KW_1A_REP + KW_1A_NEW == KW_1A",
+      "passed": true,
+      "detail": "N=10,174, max |REP+NEW - KW_1A| = 0.000000"
+    },
+    {
+      "check": "Beatty et al. (2019) PCT_REPEATED_WC bounded in [0, 1]",
+      "passed": true,
+      "detail": "min=0.0000, max=1.0000"
+    },
+    {
+      "check": "Brown & Tucker (2011) MDA_Rawscore in [0, 1] & OLS poly-5 residual mean == 0",
+      "passed": true,
+      "detail": "N=11,797, Rawscore range=[0.0000, 0.9994], mean(MDA_Score)=0.000000, mean(MDA_Score_TF)=0.000000"
+    },
+    {
+      "check": "Zero YoY metric leakage across firm boundaries or year gaps > 1",
+      "passed": true,
+      "detail": "Leaked non-consecutive rows=0"
+    },
+    {
+      "check": "Kravet & Muslu (2013) >=3 industry peers & exact Industry + Firm == Delta_RD",
+      "passed": true,
+      "detail": "N=14,542, min_peers=3, max_err=0.000000"
+    },
+    {
+      "check": "Hope, Hu & Lu (2016) 7-category NER additivity & [0, 1] bounds",
+      "passed": true,
+      "detail": "mean(Spec_1A)=0.0752 (p50=0.0640), mean(Spec_10K)=0.1964 (p50=0.1959), 7-cat mismatches=0"
+    },
+    {
+      "check": "Li (2010) Na\u00efve Bayes FLS_TONE in [-1, 1], FLS_Count >= 5, Content shares == 1.0",
+      "passed": true,
+      "detail": "N_train=2,400, 5-fold CV Tone4=74.83% (vs Guess 37.06%), Cat3=77.83% (vs Guess 46.09%), mean(FLS_TONE)=0.3882"
+    }
+  ],
+  "cmap_qc": {
+    "mda_cmap_corrupted": 41,
+    "risk_cmap_corrupted": 44,
+    "report_cmap_corrupted": 76
+  },
+  "distributions": {
+    "MDA_Rawscore": {
+      "N": 11797,
+      "mean": 0.3845,
+      "sd": 0.2637,
+      "p25": 0.1689,
+      "p50": 0.3175,
+      "p75": 0.5642
+    },
+    "MDA_Rawscore_TF": {
+      "N": 11797,
+      "mean": 0.232,
+      "sd": 0.1969,
+      "p25": 0.0854,
+      "p50": 0.1635,
+      "p75": 0.3247
+    },
+    "MDA_Score": {
+      "N": 11797,
+      "mean": 0.0,
+      "sd": 0.2508,
+      "p25": -0.1888,
+      "p50": -0.0604,
+      "p75": 0.1673
+    },
+    "MDA_Score_TF": {
+      "N": 11797,
+      "mean": 0.0,
+      "sd": 0.1893,
+      "p25": -0.1279,
+      "p50": -0.0617,
+      "p75": 0.0882
+    },
+    "KW_1A": {
+      "N": 12430,
+      "mean": 0.0259,
+      "sd": 0.0318,
+      "p25": 0.007,
+      "p50": 0.017,
+      "p75": 0.033
+    },
+    "WC_1A": {
+      "N": 12430,
+      "mean": 0.5938,
+      "sd": 0.6511,
+      "p25": 0.203,
+      "p50": 0.409,
+      "p75": 0.748
+    },
+    "ALL_WORDS": {
+      "N": 12430,
+      "mean": 5.9429,
+      "sd": 0.9859,
+      "p25": 5.3181,
+      "p50": 6.0162,
+      "p75": 6.6187
+    },
+    "KEY_WORDS": {
+      "N": 12430,
+      "mean": 2.7297,
+      "sd": 1.1625,
+      "p25": 2.0794,
+      "p50": 2.8904,
+      "p75": 3.5264
+    },
+    "RF_SYS": {
+      "N": 11706,
+      "mean": 0.3611,
+      "sd": 0.2615,
+      "p25": 0.1429,
+      "p50": 0.3457,
+      "p75": 0.5455
+    },
+    "RF_IDIO": {
+      "N": 11706,
+      "mean": 0.4228,
+      "sd": 0.2472,
+      "p25": 0.25,
+      "p50": 0.4,
+      "p75": 0.5667
+    },
+    "RF_FIN": {
+      "N": 11706,
+      "mean": 0.059,
+      "sd": 0.1173,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0651
+    },
+    "RF_LR": {
+      "N": 11706,
+      "mean": 0.1493,
+      "sd": 0.1845,
+      "p25": 0.0,
+      "p50": 0.0938,
+      "p75": 0.2222
+    },
+    "RF_TAX": {
+      "N": 11706,
+      "mean": 0.0077,
+      "sd": 0.033,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0
+    },
+    "RF_FOG": {
+      "N": 12389,
+      "mean": 19.7133,
+      "sd": 3.0907,
+      "p25": 17.896,
+      "p50": 19.557,
+      "p75": 21.256
+    },
+    "MDA_FOG": {
+      "N": 13881,
+      "mean": 18.2103,
+      "sd": 2.0825,
+      "p25": 16.906,
+      "p50": 18.06,
+      "p75": 19.319
+    },
+    "KW_1A_REP": {
+      "N": 10174,
+      "mean": 0.0102,
+      "sd": 0.0161,
+      "p25": 0.001,
+      "p50": 0.005,
+      "p75": 0.013
+    },
+    "KW_1A_NEW": {
+      "N": 10174,
+      "mean": 0.0167,
+      "sd": 0.0257,
+      "p25": 0.002,
+      "p50": 0.008,
+      "p75": 0.022
+    },
+    "KW_1A_DISC": {
+      "N": 10174,
+      "mean": 0.0156,
+      "sd": 0.0246,
+      "p25": 0.001,
+      "p50": 0.008,
+      "p75": 0.02
+    },
+    "PCT_REPEATED_WC": {
+      "N": 10174,
+      "mean": 0.4461,
+      "sd": 0.3298,
+      "p25": 0.1481,
+      "p50": 0.4104,
+      "p75": 0.7279
+    },
+    "FIN_SYS_1A": {
+      "N": 12430,
+      "mean": 0.0,
+      "sd": 1.0,
+      "p25": -0.5668,
+      "p50": -0.2912,
+      "p75": 0.1893
+    },
+    "IDIO_LR_1A": {
+      "N": 12430,
+      "mean": -0.0,
+      "sd": 1.0,
+      "p25": -0.1658,
+      "p50": -0.1281,
+      "p75": -0.0528
+    },
+    "Specificity_1A": {
+      "N": 12419,
+      "mean": 0.0752,
+      "sd": 0.0592,
+      "p25": 0.0329,
+      "p50": 0.064,
+      "p75": 0.1042
+    },
+    "Specificity_10K": {
+      "N": 16891,
+      "mean": 0.1964,
+      "sd": 0.0405,
+      "p25": 0.1635,
+      "p50": 0.1959,
+      "p75": 0.2249
+    },
+    "KM_Risk_Disclosure": {
+      "N": 16891,
+      "mean": 168.3646,
+      "sd": 165.0449,
+      "p25": 38.0,
+      "p50": 103.0,
+      "p75": 272.0
+    },
+    "KM_Negative_RD": {
+      "N": 16891,
+      "mean": 23.3289,
+      "sd": 24.6077,
+      "p25": 5.0,
+      "p50": 13.0,
+      "p75": 38.0
+    },
+    "KM_Delta_RD": {
+      "N": 15182,
+      "mean": 15.8314,
+      "sd": 69.4086,
+      "p25": -5.0,
+      "p50": 7.0,
+      "p75": 30.0
+    },
+    "KM_Delta_Industry_RD": {
+      "N": 14542,
+      "mean": 13.2024,
+      "sd": 19.7615,
+      "p25": 3.0,
+      "p50": 8.0,
+      "p75": 18.0
+    },
+    "KM_Delta_Firm_RD": {
+      "N": 14542,
+      "mean": 2.6171,
+      "sd": 65.9852,
+      "p25": -14.0,
+      "p50": 0.0,
+      "p75": 16.0
+    },
+    "FLS_Count": {
+      "N": 16987,
+      "mean": 28.0421,
+      "sd": 37.8726,
+      "p25": 3.0,
+      "p50": 18.0,
+      "p75": 40.0
+    },
+    "FLS_Share": {
+      "N": 13883,
+      "mean": 0.1637,
+      "sd": 0.0799,
+      "p25": 0.1101,
+      "p50": 0.1562,
+      "p75": 0.2088
+    },
+    "FLS_TONE": {
+      "N": 12393,
+      "mean": 0.3882,
+      "sd": 0.2787,
+      "p25": 0.2,
+      "p50": 0.4118,
+      "p75": 0.6
+    },
+    "FLS_TONE_Dict": {
+      "N": 12393,
+      "mean": 0.2316,
+      "sd": 0.2,
+      "p25": 0.1009,
+      "p50": 0.2308,
+      "p75": 0.3636
+    },
+    "FLS_PROFIT_TONE": {
+      "N": 11991,
+      "mean": 0.5359,
+      "sd": 0.3532,
+      "p25": 0.3462,
+      "p50": 0.6,
+      "p75": 0.7778
+    },
+    "FLS_LIQUIDITY_TONE": {
+      "N": 9141,
+      "mean": 0.3709,
+      "sd": 0.4717,
+      "p25": 0.0,
+      "p50": 0.375,
+      "p75": 0.75
+    },
+    "FLS_PROFIT_PCT": {
+      "N": 13606,
+      "mean": 0.6048,
+      "sd": 0.2757,
+      "p25": 0.4545,
+      "p50": 0.6667,
+      "p75": 0.8114
+    },
+    "FLS_LIQUIDITY_PCT": {
+      "N": 13606,
+      "mean": 0.1003,
+      "sd": 0.1267,
+      "p25": 0.0,
+      "p50": 0.0645,
+      "p75": 0.1456
+    },
+    "FLS_OTHER_PCT": {
+      "N": 13606,
+      "mean": 0.2949,
+      "sd": 0.2589,
+      "p25": 0.1111,
+      "p50": 0.2143,
+      "p75": 0.4
+    }
+  }
+}
