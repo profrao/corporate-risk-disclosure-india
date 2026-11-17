@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+# Exclude proprietary CMIE Prowess subscription exports and merged financial panels
+05_cmie_data/
+raw_exports/
+*replication_dataset*.csv
+*replication_dataset*.dta
+*replication_dataset*.gz
